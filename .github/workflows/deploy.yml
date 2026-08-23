@@ -1,0 +1,58 @@
+name: Deploy to SiteGround
+
+# Publishes site/ to SiteGround over SFTP on every push to main.
+#
+# Repository secrets to add (Settings → Secrets and variables → Actions):
+#   SG_HOST      your SiteGround SFTP host, e.g. giowg1234.siteground.biz
+#   SG_USER      SFTP username
+#   SG_KEY       the PRIVATE key whose public half is in SiteGround → SSH Keys Manager
+#   SG_PORT      usually 18765
+#   SG_PATH      absolute target dir, e.g. /home/customer/www/wonderlandescrow.com/public_html
+#
+# Dry-run first: set DRY_RUN below to "--dry-run", push, read the log, then remove it.
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-production
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Sanity-check the build
+        run: |
+          test -f site/index.html
+          test -f site/net-sheet.html
+          test -f site/css/wonderland.css
+          echo "Pages: $(find site -name '*.html' | wc -l)"
+
+      - name: Fail if an API key leaked into client code
+        run: |
+          if grep -rIn --exclude-dir=api -E 'sk-ant-|ANTHROPIC_API_KEY' site/; then
+            echo "::error::A secret appears in client-delivered files."
+            exit 1
+          fi
+
+      - name: Install SSH key
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.SG_KEY }}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan -p ${{ secrets.SG_PORT }} ${{ secrets.SG_HOST }} >> ~/.ssh/known_hosts 2>/dev/null
+
+      - name: Sync site/ to SiteGround
+        env:
+          DRY_RUN: ""
+        run: |
+          rsync -avz --delete $DRY_RUN \
+            -e "ssh -p ${{ secrets.SG_PORT }} -i ~/.ssh/id_rsa" \
+            --exclude '.git*' --exclude 'api/' --exclude '_build/' \
+            site/ \
+            ${{ secrets.SG_USER }}@${{ secrets.SG_HOST }}:${{ secrets.SG_PATH }}/

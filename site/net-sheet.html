@@ -1,0 +1,312 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Free Seller Net Sheet &amp; Buyer Closing Cost Calculator | Wonderland Escrow</title>
+<meta name="description" content="Run a Southern California seller net sheet or buyer closing cost estimate in two minutes. Free, unlimited, co-branded with your name and brokerage. No login required.">
+<link rel="canonical" href="https://wonderlandescrow.com/net-sheet.html">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Wonderland Escrow">
+<meta property="og:title" content="Free Net Sheet Calculator | Wonderland Escrow">
+<meta property="og:description" content="Seller net proceeds and buyer cash-to-close, co-branded and ready to send. Free for Southern California agents.">
+<meta property="og:url" content="https://wonderlandescrow.com/net-sheet.html">
+<link rel="icon" href="assets/logos/mark.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://use.typekit.net" crossorigin>
+<link rel="stylesheet" href="css/wonderland.css">
+<link rel="stylesheet" href="css/net-sheet.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"Wonderland Escrow Net Sheet Calculator","applicationCategory":"FinanceApplication","operatingSystem":"Web","url":"https://wonderlandescrow.com/net-sheet.html","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"provider":{"@type":"Organization","name":"Wonderland Escrow","@id":"https://wonderlandescrow.com/#org"},"description":"Free seller net sheet and buyer closing cost estimator for Southern California real estate transactions."}
+</script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="masthead no-print">
+  <div class="shell masthead__bar">
+    <a class="masthead__logo" href="index.html" aria-label="Wonderland Escrow home"><img src="assets/logos/horizontal-light.svg" alt="Wonderland Escrow" width="465" height="144"></a>
+    <button class="nav__toggle" aria-expanded="false" aria-label="Open menu"><span class="ico" data-i="menu" style="font-size:20px"></span></button>
+    <nav class="nav" aria-label="Main">
+      <div class="nav__group">
+        <a class="nav__link" href="locations.html">Locations <span class="ico" data-i="chevron-down" style="font-size:12px"></span></a>
+        <div class="nav__menu">
+          <a href="office-santa-clarita.html">Santa Clarita Valley</a>
+          <a href="office-los-angeles.html">Los Angeles</a>
+          <a href="office-conejo-valley.html">Conejo Valley</a>
+          <a href="office-coachella-valley.html">Coachella Valley</a>
+        </div>
+      </div>
+      <a class="nav__link" href="net-sheet.html">Net Sheet</a>
+      <a class="nav__link" href="escrow-101.html">Escrow 101</a>
+      <a class="nav__link" href="contact.html">Contact</a>
+      <a class="btn btn--primary btn--sm" href="open-escrow.html">Open Escrow</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <section class="tool-head no-print">
+    <div class="shell stack stack-4">
+      <p class="eyebrow eyebrow--sky">For Agents</p>
+      <h1 class="h1" style="color:#fff;max-width:24ch">Net sheet, on your schedule</h1>
+      <p class="lede" style="color:rgba(255,255,255,.82);max-width:58ch">Seller net proceeds or buyer cash to close, with your name on it. Free, unlimited, and no waiting on a callback &mdash; though your Wonderland officer will happily review any number you question.</p>
+      <div class="row" style="gap:var(--space-6);margin-top:8px">
+        <span class="row" style="gap:8px;color:var(--wl-sky);font-family:var(--font-ui);font-weight:var(--fw-heavy);font-size:12px;letter-spacing:var(--ls-caps);text-transform:uppercase"><span class="ico" data-i="check" style="font-size:15px"></span>No login</span>
+        <span class="row" style="gap:8px;color:var(--wl-sky);font-family:var(--font-ui);font-weight:var(--fw-heavy);font-size:12px;letter-spacing:var(--ls-caps);text-transform:uppercase"><span class="ico" data-i="check" style="font-size:15px"></span>Co-branded PDF</span>
+        <span class="row" style="gap:8px;color:var(--wl-sky);font-family:var(--font-ui);font-weight:var(--fw-heavy);font-size:12px;letter-spacing:var(--ls-caps);text-transform:uppercase"><span class="ico" data-i="check" style="font-size:15px"></span>Editable fee schedule</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ print-only header, becomes the PDF letterhead ============ -->
+  <div class="print-only print-head">
+    <div class="print-head__top">
+      <img src="assets/logos/horizontal-light.svg" alt="Wonderland Escrow" style="height:46px;width:auto">
+      <div style="text-align:right">
+        <p class="eyebrow eyebrow--sm">Estimated Net Sheet</p>
+        <p class="fine" id="print-date"></p>
+      </div>
+    </div>
+    <div class="print-head__meta">
+      <div><p class="eyebrow eyebrow--sm eyebrow--muted">Property</p><p id="print-property"></p></div>
+      <div><p class="eyebrow eyebrow--sm eyebrow--muted">Prepared by</p><p id="print-agent"></p><p class="fine" id="print-brokerage"></p></div>
+      <div><p class="eyebrow eyebrow--sm eyebrow--muted">For</p><p id="print-client"></p><p class="fine" id="print-officer"></p></div>
+    </div>
+  </div>
+
+  <section class="section section--tight">
+    <div class="shell">
+
+      <div class="tabs no-print" role="tablist" aria-label="Net sheet type">
+        <button class="tabs__btn" role="tab" data-tab="seller" aria-selected="true">Seller Net Sheet</button>
+        <button class="tabs__btn" role="tab" data-tab="buyer" aria-selected="false">Buyer Estimate</button>
+        <button class="tabs__btn" role="tab" data-tab="compare" aria-selected="false">Side&nbsp;by&nbsp;Side</button>
+      </div>
+
+      <div class="tool">
+        <!-- ------------------------------- inputs ------------------------------- -->
+        <form class="sheet-form stack stack-8" novalidate>
+
+          <!-- SELLER -->
+          <div data-panel="seller" class="stack stack-8">
+            <fieldset class="fs">
+              <legend class="h5">The sale</legend>
+              <div class="grid grid-2" style="gap:var(--space-5)">
+                <div class="field"><label class="field__label" for="s-price">Sale price <span class="req">*</span></label><div class="input-money"><input class="input" id="s-price" type="text" inputmode="numeric" placeholder="1,250,000"></div></div>
+                <div class="field"><label class="field__label" for="s-closing">Estimated closing date</label><input class="input" id="s-closing" type="date"></div>
+                <div class="field"><label class="field__label" for="s-city">City transfer tax</label>
+                  <select class="select" id="s-city">
+                    <option value="none">No city transfer tax</option>
+                    <option value="los-angeles">City of Los Angeles</option>
+                    <option value="santa-monica">Santa Monica</option>
+                    <option value="culver-city">Culver City</option>
+                    <option value="pomona">Pomona</option>
+                    <option value="redondo-beach">Redondo Beach</option>
+                  </select>
+                  <span class="field__hint">County tax of $1.10 per $1,000 is always applied.</span>
+                </div>
+                <div class="field"><label class="field__label" for="s-taxrate">Annual property tax rate</label><div class="input-pct"><input class="input" id="s-taxrate" type="text" inputmode="decimal"></div><span class="field__hint">Percent of price. 1.25% is a typical SoCal baseline.</span></div>
+              </div>
+            </fieldset>
+
+            <fieldset class="fs">
+              <legend class="h5">Commissions</legend>
+              <div class="grid grid-2" style="gap:var(--space-5)">
+                <div class="field"><label class="field__label" for="s-listing">Listing side</label><div class="input-pct"><input class="input" id="s-listing" type="text" inputmode="decimal"></div></div>
+                <div class="field"><label class="field__label" for="s-selling">Selling side</label><div class="input-pct"><input class="input" id="s-selling" type="text" inputmode="decimal"></div></div>
+              </div>
+            </fieldset>
+
+            <fieldset class="fs">
+              <legend class="h5">Payoffs</legend>
+              <div class="grid grid-2" style="gap:var(--space-5)">
+                <div class="field"><label class="field__label" for="s-payoff1">First loan payoff</label><div class="input-money"><input class="input" id="s-payoff1" type="text" inputmode="numeric" placeholder="0"></div></div>
+                <div class="field"><label class="field__label" for="s-payoff2">Second loan / HELOC</label><div class="input-money"><input class="input" id="s-payoff2" type="text" inputmode="numeric" placeholder="0"></div></div>
+              </div>
+            </fieldset>
+
+            <fieldset class="fs">
+              <legend class="h5">Seller-paid items</legend>
+              <div class="grid grid-2" style="gap:var(--space-5)">
+                <div class="field"><label class="field__label" for="s-warranty">Home warranty</label><div class="input-money"><input class="input" id="s-warranty" type="text" inputmode="numeric"></div></div>
+                <div class="field"><label class="field__label" for="s-termite">Termite inspection &amp; work</label><div class="input-money"><input class="input" id="s-termite" type="text" inputmode="numeric"></div></div>
+                <div class="field"><label class="field__label" for="s-hoa">HOA docs &amp; transfer</label><div class="input-money"><input class="input" id="s-hoa" type="text" inputmode="numeric"></div></div>
+                <div class="field"><label class="field__label" for="s-credit">Credit to buyer</label><div class="input-money"><input class="input" id="s-credit" type="text" inputmode="numeric" placeholder="0"></div></div>
+                <div class="field"><label class="field__label" for="s-repairs">Repairs &amp; other credits</label><div class="input-money"><input class="input" id="s-repairs" type="text" inputmode="numeric" placeholder="0"></div></div>
+              </div>
+            </fieldset>
+          </div>
+
+          <!-- BUYER -->
+          <div data-panel="buyer" class="stack stack-8" hidden>
+            <fieldset class="fs">
+              <legend class="h5">The purchase</legend>
+              <div class="grid grid-2" style="gap:var(--space-5)">
+                <div class="field"><label class="field__label" for="b-price">Purchase price <span class="req">*</span></label><div class="input-money"><input class="input" id="b-price" type="text" inputmode="numeric" placeholder="1,250,000"></div></div>
+                <div class="field"><label class="field__label" for="b-closing">Estimated closing date</label><input class="input" id="b-closing" type="date"></div>
+                <div class="field"><label class="field__label" for="b-down">Down payment</label><div class="input-pct"><input class="input" id="b-down" type="text" inputmode="decimal"></div></div>
+                <div class="field"><label class="field__label" for="b-deposit">Earnest money already deposited</label><div class="input-money"><input class="input" id="b-deposit" type="text" inputmode="numeric" placeholder="0"></div></div>
+              </div>
+            </fieldset>
+
+            <fieldset class="fs">
+              <legend class="h5">The loan</legend>
+              <div class="grid grid-2" style="gap:var(--space-5)">
+                <div class="field"><label class="field__label" for="b-rate">Interest rate</label><div class="input-pct"><input class="input" id="b-rate" type="text" inputmode="decimal"></div></div>
+                <div class="field"><label class="field__label" for="b-origination">Origination / points</label><div class="input-pct"><input class="input" id="b-origination" type="text" inputmode="decimal"></div></div>
+                <div class="field"><label class="field__label" for="b-prepaiddays">Prepaid interest days</label><input class="input" id="b-prepaiddays" type="text" inputmode="numeric"></div>
+                <div class="field"><label class="field__label" for="b-impound">Impound months</label><input class="input" id="b-impound" type="text" inputmode="numeric"></div>
+              </div>
+            </fieldset>
+
+            <fieldset class="fs">
+              <legend class="h5">Buyer-paid items</legend>
+              <div class="grid grid-2" style="gap:var(--space-5)">
+                <div class="field"><label class="field__label" for="b-hazard">Hazard insurance, annual</label><div class="input-money"><input class="input" id="b-hazard" type="text" inputmode="numeric"></div></div>
+                <div class="field"><label class="field__label" for="b-taxrate">Annual property tax rate</label><div class="input-pct"><input class="input" id="b-taxrate" type="text" inputmode="decimal"></div></div>
+                <div class="field"><label class="field__label" for="b-hoa">HOA transfer &amp; prorated dues</label><div class="input-money"><input class="input" id="b-hoa" type="text" inputmode="numeric" placeholder="0"></div></div>
+                <div class="field"><label class="field__label" for="b-inspection">Home inspection</label><div class="input-money"><input class="input" id="b-inspection" type="text" inputmode="numeric" placeholder="0"></div></div>
+                <div class="field"><label class="field__label" for="b-credit">Seller credit to buyer</label><div class="input-money"><input class="input" id="b-credit" type="text" inputmode="numeric" placeholder="0"></div></div>
+              </div>
+            </fieldset>
+          </div>
+
+          <!-- COMPARE -->
+          <div data-panel="compare" class="stack stack-6" hidden>
+            <p class="body">Fill in both the seller and buyer tabs, then use this view when you are negotiating credits &mdash; it shows what each side actually walks away with.</p>
+            <div class="card card--cloud"><div id="compare-body" class="sheet"></div></div>
+          </div>
+
+          <!-- CO-BRANDING -->
+          <fieldset class="fs">
+            <legend class="h5">Put your name on it</legend>
+            <div class="grid grid-2" style="gap:var(--space-5)">
+              <div class="field"><label class="field__label" for="c-property">Property address</label><input class="input" id="c-property" type="text" placeholder="1234 Oak Crest Dr, Westlake Village"></div>
+              <div class="field"><label class="field__label" for="c-client">Client name</label><input class="input" id="c-client" type="text" placeholder="Jane Seller"></div>
+              <div class="field"><label class="field__label" for="c-agent">Your name</label><input class="input" id="c-agent" type="text" placeholder="Alex Agent"></div>
+              <div class="field"><label class="field__label" for="c-brokerage">Brokerage</label><input class="input" id="c-brokerage" type="text" placeholder="Oak Crest Realty"></div>
+              <div class="field"><label class="field__label" for="c-dre">DRE #</label><input class="input" id="c-dre" type="text" placeholder="01234567"></div>
+              <div class="field"><label class="field__label" for="c-email">Your email</label><input class="input" id="c-email" type="email" placeholder="you@brokerage.com"><span class="field__hint">Only used to email you the sheet. We do not add you to a list.</span></div>
+              <div class="field"><label class="field__label" for="c-officer">Wonderland officer</label>
+                <select class="select" id="c-officer">
+                  <option value="">Choose an office or officer</option>
+                  <option>Santa Clarita — (661) 210-3615</option>
+                  <option>Sherman Oaks — (818) 650-8950</option>
+                  <option>Westlake Village — (805) 869-1790</option>
+                  <option>Rancho Mirage — (760) 248-3070</option>
+                  <option>La Quinta — (760) 895-6380</option>
+                </select>
+              </div>
+            </div>
+          </fieldset>
+        </form>
+
+        <!-- ------------------------------- results ------------------------------ -->
+        <aside class="results">
+          <div class="results__inner">
+
+            <div data-panel="seller">
+              <p class="eyebrow eyebrow--sm">Estimated Seller Net</p>
+              <p class="results__big" id="s-net">$0</p>
+              <p class="fine" id="s-pct" style="margin-top:4px"></p>
+              <div class="results__totals">
+                <div class="sheet__line"><span class="sheet__label">Gross sale price</span><span class="sheet__amt" id="s-gross">$0</span></div>
+                <div class="sheet__line"><span class="sheet__label">Total costs &amp; payoffs</span><span class="sheet__amt" id="s-costs">$0</span></div>
+              </div>
+              <div class="sheet" id="s-lines"></div>
+            </div>
+
+            <div data-panel="buyer" hidden>
+              <p class="eyebrow eyebrow--sm">Estimated Cash To Close</p>
+              <p class="results__big" id="b-cash">$0</p>
+              <div class="results__totals">
+                <div class="sheet__line"><span class="sheet__label">Down payment</span><span class="sheet__amt" id="b-down">$0</span></div>
+                <div class="sheet__line"><span class="sheet__label">Loan amount</span><span class="sheet__amt" id="b-loan">$0</span></div>
+                <div class="sheet__line"><span class="sheet__label">Total closing costs</span><span class="sheet__amt" id="b-costs">$0</span></div>
+              </div>
+              <div class="sheet" id="b-lines"></div>
+            </div>
+
+            <div class="results__actions no-print">
+              <button class="btn btn--primary btn--full" id="btn-print" type="button"><span class="ico" data-i="download"></span> Download PDF</button>
+              <form id="email-form" class="stack stack-3">
+                <button class="btn btn--secondary btn--full" type="submit"><span class="ico" data-i="mail"></span> Email It To Me</button>
+                <p class="fine" id="send-status" role="status"></p>
+              </form>
+            </div>
+
+            <p class="fine results__disclaimer" id="disclaimer-text"></p>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <div class="print-only print-foot">
+    <p class="fine" id="print-disclaimer"></p>
+    <p class="fine" style="margin-top:10px">Wonderland Escrow, Inc. &middot; wonderlandescrow.com &middot; concierge@wonderlandescrow.com</p>
+  </div>
+
+  <section class="section section--cloud no-print">
+    <div class="shell grid grid-split">
+      <div class="stack stack-5">
+        <p class="eyebrow">Questions About A Number?</p>
+        <h2 class="h2">A person will always explain the math</h2>
+        <span class="rule"></span>
+        <p class="body">This tool uses our published fee schedule and standard Southern California practice. Your actual transaction may differ &mdash; city transfer taxes, HOA rules, payoff demands and lender fees all move the total. If a figure looks wrong, ask. That is the whole job.</p>
+        <div class="row"><a class="btn btn--primary" href="contact.html">Talk To An Officer</a><a class="btn btn--ghost" href="escrow-101.html">Read Escrow 101 <span class="ico" data-i="arrow-right"></span></a></div>
+      </div>
+      <div class="card card--flat">
+        <p class="eyebrow eyebrow--sm">What Moves The Number Most</p>
+        <ul class="checks" style="margin-top:18px">
+          <li><span class="ico" data-i="check"></span>City transfer tax &mdash; Los Angeles adds thousands</li>
+          <li><span class="ico" data-i="check"></span>Loan payoff timing and per-diem interest</li>
+          <li><span class="ico" data-i="check"></span>Property tax proration around 1 July and 1 January</li>
+          <li><span class="ico" data-i="check"></span>Credits negotiated after inspection</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer no-print">
+  <div class="shell">
+    <div class="footer__cols">
+      <div class="stack stack-5">
+        <img src="assets/logos/stacked-dark.svg" alt="Wonderland Escrow" style="height:104px;width:auto" loading="lazy">
+        <p class="eyebrow eyebrow--sky eyebrow--sm">Southern California&rsquo;s Top-Reviewed Escrow Company</p>
+        <p class="small" style="color:var(--text-on-dark-muted)"><a href="mailto:concierge@wonderlandescrow.com">concierge@wonderlandescrow.com</a></p>
+        <div class="social">
+          <a href="https://www.instagram.com/wonderlandescrow/" aria-label="Instagram"><span class="ico" data-i="instagram"></span></a>
+          <a href="#" aria-label="LinkedIn"><span class="ico" data-i="linkedin"></span></a>
+          <a href="#" aria-label="Facebook"><span class="ico" data-i="facebook"></span></a>
+        </div>
+      </div>
+      <div class="footer__offices">
+        <div class="stack stack-2"><p class="eyebrow eyebrow--sm" style="color:#fff">Sherman Oaks</p><p class="small" style="color:var(--text-on-dark-muted)">13412 Ventura Blvd #200<br>Sherman Oaks, CA 91423<br><a href="tel:+18186508950">(818) 650-8950</a></p></div>
+        <div class="stack stack-2"><p class="eyebrow eyebrow--sm" style="color:#fff">Santa Clarita</p><p class="small" style="color:var(--text-on-dark-muted)">25152 Springfield Court #240<br>Santa Clarita, CA 91355<br><a href="tel:+16612103615">(661) 210-3615</a></p></div>
+        <div class="stack stack-2"><p class="eyebrow eyebrow--sm" style="color:#fff">Westlake Village</p><p class="small" style="color:var(--text-on-dark-muted)">31365 Oak Crest Drive #200<br>Westlake Village, CA 91361<br><a href="tel:+18058691790">(805) 869-1790</a></p></div>
+        <div class="stack stack-2"><p class="eyebrow eyebrow--sm" style="color:#fff">Rancho Mirage</p><p class="small" style="color:var(--text-on-dark-muted)">70-115 Highway 111 #110<br>Rancho Mirage, CA 92270<br><a href="tel:+17602483070">(760) 248-3070</a></p></div>
+        <div class="stack stack-2"><p class="eyebrow eyebrow--sm" style="color:#fff">La Quinta</p><p class="small" style="color:var(--text-on-dark-muted)">47050 Washington St #4202<br>La Quinta, CA 92253<br><a href="tel:+17608956380">(760) 895-6380</a></p></div>
+      </div>
+    </div>
+    <div class="footer__legal">
+      <div class="footer__legal-links fine">
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms and Conditions</a>
+        <a href="locations.html">Locations</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <p class="fine">Copyright &copy; 2026 Wonderland Escrow, Inc. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="js/site.js"></script>
+<script type="module" src="js/net-sheet.js"></script>
+<script src="js/chat.js" defer></script>
+</body>
+</html>
