@@ -1,0 +1,19 @@
+/* Shadows are quiet and cool-neutral — the brand reads as printed paper, not as UI chrome.
+   Nothing above --shadow-lg exists; use a hairline border before reaching for a shadow. */
+:root{
+  --shadow-none: none;
+  --shadow-xs: 0 1px 2px rgba(16,17,18,.06);
+  --shadow-sm: 0 1px 3px rgba(16,17,18,.08), 0 1px 2px rgba(16,17,18,.04);
+  --shadow-md: 0 4px 16px rgba(16,17,18,.08);
+  --shadow-lg: 0 12px 32px rgba(16,17,18,.12);
+  --shadow-inset: inset 0 1px 2px rgba(16,17,18,.06);
+  --shadow-focus: 0 0 0 3px rgba(148,216,234,.65);
+  --shadow-focus-inverse: 0 0 0 3px rgba(148,216,234,.45);
+
+  /* protection gradient for type over photography */
+  --scrim-bottom: linear-gradient(to top, rgba(16,17,18,.72) 0%, rgba(16,17,18,.28) 45%, rgba(16,17,18,0) 100%); /* @kind other */
+  --scrim-left: linear-gradient(to right, rgba(16,17,18,.7) 0%, rgba(16,17,18,0) 62%); /* @kind other */
+  --scrim-flat: rgba(16,17,18,.45); /* @kind other */
+  --glass: rgba(255,255,255,.86); /* @kind color */
+  --glass-blur: saturate(140%) blur(14px); /* @kind other */
+}

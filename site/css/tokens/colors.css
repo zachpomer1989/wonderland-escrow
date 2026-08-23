@@ -1,0 +1,72 @@
+/* Wonderland Escrow palette. The five hexes below are the entire approved brand palette
+   (Brand Guidelines p.2). Everything else in this file is a tint/shade derived from them
+   for interaction states only — do not introduce new hues. */
+:root{
+  /* ---- brand palette (verbatim) ---- */
+  --wl-ink: #101112;      /* near-black, primary text + dark surfaces */
+  --wl-blue: #005fae;     /* Wonderland blue, primary brand + action */
+  --wl-sky: #94d8ea;      /* light blue, secondary / accent / highlight */
+  --wl-slate: #5b5e61;    /* warm-neutral gray, secondary text */
+  --wl-cloud: #f0f1f2;    /* off-white page + card surface */
+  --wl-white: #ffffff;
+
+  /* ---- derived interaction shades ---- */
+  --wl-blue-900: #003f75;
+  --wl-blue-700: #004a88;   /* blue hover */
+  --wl-blue-600: #00539a;   /* blue press */
+  --wl-blue-100: #dbeaf6;   /* blue wash */
+  --wl-sky-600: #6cc5dc;    /* sky hover */
+  --wl-sky-200: #cdedf6;
+  --wl-sky-100: #e7f6fb;    /* sky wash */
+  --wl-ink-800: #24262a;
+  --wl-slate-400: #8c9094;
+  --wl-slate-200: #c7cacd;
+  --wl-cloud-dark: #e2e4e6;  /* hairline on cloud */
+
+  /* ---- semantic: text ---- */
+  --text-body: var(--wl-ink);
+  --text-heading: var(--wl-ink);
+  --text-muted: var(--wl-slate);
+  --text-subtle: var(--wl-slate-400);
+  --text-brand: var(--wl-blue);
+  --text-on-dark: var(--wl-white);
+  --text-on-dark-muted: #a9adb1;
+  --text-on-brand: var(--wl-white);
+  --text-link: var(--wl-blue);
+  --text-link-hover: var(--wl-blue-700);
+
+  /* ---- semantic: surfaces ---- */
+  --surface-page: var(--wl-white);
+  --surface-alt: var(--wl-cloud);
+  --surface-card: var(--wl-white);
+  --surface-card-alt: var(--wl-cloud);
+  --surface-inverse: var(--wl-ink);
+  --surface-brand: var(--wl-blue);
+  --surface-accent: var(--wl-sky);
+  --surface-accent-wash: var(--wl-sky-100);
+  --surface-brand-wash: var(--wl-blue-100);
+
+  /* ---- semantic: lines ---- */
+  --border-hairline: #dcdfe1;
+  --border-strong: var(--wl-slate-200);
+  --border-inverse: rgba(255,255,255,.22);
+  --border-brand: var(--wl-blue);
+  --border-accent: var(--wl-sky);
+  --rule-accent: var(--wl-sky);
+
+  /* ---- semantic: controls ---- */
+  --action-primary: var(--wl-blue);
+  --action-primary-hover: var(--wl-blue-700);
+  --action-primary-active: var(--wl-blue-600);
+  --action-secondary: var(--wl-ink);
+  --action-accent: var(--wl-sky);
+  --action-disabled-bg: var(--wl-cloud);
+  --action-disabled-fg: var(--wl-slate-400);
+  --focus-ring: var(--wl-sky);
+
+  /* ---- status (derived, used sparingly in forms only) ---- */
+  --status-success: #2f7d4f;
+  --status-error: #a3282b;
+  --status-warning: #a8710f;
+  --status-info: var(--wl-blue);
+}

@@ -1,0 +1,62 @@
+/* Net sheet tool — page-specific layout and print/PDF rules. */
+
+.tool-head{background:var(--surface-inverse);padding-block:var(--space-16)}
+.tool-head .eyebrow{color:var(--wl-sky)}
+
+.tabs{display:flex;gap:var(--space-8);border-bottom:1px solid var(--border-hairline);margin-bottom:var(--space-10)}
+.tabs__btn{background:none;border:none;border-bottom:3px solid transparent;margin-bottom:-1px;padding:0 0 14px;cursor:pointer;font-family:var(--font-ui);font-weight:var(--fw-heavy);font-size:12px;letter-spacing:var(--ls-caps);text-transform:uppercase;color:var(--text-muted);transition:var(--transition-control)}
+.tabs__btn:hover{color:var(--text-brand)}
+.tabs__btn[aria-selected="true"]{color:var(--text-heading);border-bottom-color:var(--wl-sky)}
+
+.tool{display:grid;grid-template-columns:1fr 400px;gap:var(--space-16);align-items:start}
+
+.fs{border:none;margin:0;padding:0}
+.fs legend{padding:0 0 var(--space-5);color:var(--text-heading)}
+
+.results__inner{position:sticky;top:calc(var(--nav-height) + 24px);background:var(--surface-alt);padding:var(--space-8);display:flex;flex-direction:column;gap:var(--space-5)}
+.results__big{font-family:var(--font-display);font-size:clamp(38px,4vw,52px);line-height:1;letter-spacing:var(--ls-tight);color:var(--text-heading);margin-top:8px}
+.results__totals{display:flex;flex-direction:column;gap:2px;padding:var(--space-4) 0;border-top:1px solid var(--border-hairline);border-bottom:1px solid var(--border-hairline)}
+.results__totals .sheet__label{font-weight:var(--fw-demi);color:var(--text-heading)}
+.results__actions{display:flex;flex-direction:column;gap:var(--space-3)}
+.results__disclaimer{padding-top:var(--space-4);border-top:1px solid var(--border-hairline)}
+
+.sheet{display:flex;flex-direction:column;max-height:340px;overflow-y:auto}
+.sheet__line{display:flex;justify-content:space-between;align-items:baseline;gap:var(--space-4);padding:9px 0;border-bottom:1px solid var(--border-hairline)}
+.sheet__line:last-child{border-bottom:none}
+.sheet__label{font-size:var(--fs-body-sm);line-height:1.4}
+.sheet__note{display:block;font-family:var(--font-fine-print);font-size:11px;color:var(--text-subtle);margin-top:2px}
+.sheet__amt{font-family:var(--font-ui);font-weight:var(--fw-demi);font-size:var(--fs-body-sm);white-space:nowrap;font-variant-numeric:tabular-nums}
+
+.print-only{display:none}
+
+@media (max-width:1040px){
+  .tool{grid-template-columns:1fr;gap:var(--space-12)}
+  .results__inner{position:static}
+  .sheet{max-height:none}
+}
+
+/* ------------------------------- PDF / print -------------------------------
+   "Download PDF" is window.print() into the browser's Save-as-PDF. No library,
+   no server, and the output is real selectable text. */
+@media print{
+  @page{size:letter;margin:0.6in}
+  html,body{background:#fff !important}
+  .no-print,.masthead,.footer,.tabs,.tool-head,.results__actions,.wl-chat,.skip-link{display:none !important}
+  .print-only{display:block}
+  .section{padding-block:0 !important}
+  .shell{max-width:none;padding-inline:0}
+  .tool{display:block}
+  .sheet-form{display:none}
+  .results__inner{position:static;background:#fff;padding:0}
+  .results__big{font-size:34px}
+  .sheet{max-height:none;overflow:visible}
+  .sheet__line{padding:6px 0;break-inside:avoid}
+  [data-panel][hidden]{display:none !important}
+
+  .print-head{border-bottom:var(--border-width-rule) solid var(--wl-sky);padding-bottom:14px;margin-bottom:20px}
+  .print-head__top{display:flex;justify-content:space-between;align-items:flex-end}
+  .print-head__meta{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:18px}
+  .print-head__meta p{font-size:12px;line-height:1.4}
+  .print-foot{margin-top:24px;padding-top:12px;border-top:1px solid var(--border-hairline)}
+  .results__disclaimer{display:none}
+}
