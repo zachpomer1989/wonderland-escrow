@@ -22,9 +22,9 @@ button{font:inherit;color:inherit}
 .section{padding-block:var(--pad-section)}
 .section--tight{padding-block:var(--pad-section-tight)}
 .section--cloud{background:var(--surface-alt)}
-.section--wmark{position:relative;overflow:hidden}
-.section--wmark>.shell{position:relative;z-index:1}
-.section__wmark{position:absolute;top:0;bottom:0;left:0;height:100%;width:auto;max-width:none;transform:translateX(-20%);opacity:.5;pointer-events:none;filter:brightness(0) invert(1)}
+.section--wmark{position:relative;overflow:hidden;isolation:isolate}
+.section--wmark>.shell{position:relative;z-index:2}
+.section__wmark{position:absolute;z-index:0;top:0;bottom:0;left:0;height:100%;width:auto;max-width:none;transform:translateX(-20%);opacity:.55;pointer-events:none;filter:brightness(0) invert(1)}
 .section--ink{background:var(--surface-inverse);color:var(--text-on-dark)}
 .section--brand{background:var(--surface-brand);color:var(--text-on-brand)}
 .stack{display:flex;flex-direction:column}
