@@ -37,12 +37,9 @@ RewriteRule ^ https://%1%{REQUEST_URI} [R=301,L]
   Header set Referrer-Policy "strict-origin-when-cross-origin"
   Header set X-Frame-Options "SAMEORIGIN"
   Header set Permissions-Policy "geolocation=(), microphone=(), camera=()"
-</IfModule>
-
-ErrorDocument 404 /404.html
-
-<IfModule mod_headers.c>
   # Keep staging out of search results. Host-scoped, so production is unaffected.
   SetEnvIf Host ^staging\. IS_STAGING=1
   Header set X-Robots-Tag "noindex, nofollow" env=IS_STAGING
 </IfModule>
+
+ErrorDocument 404 /404.html

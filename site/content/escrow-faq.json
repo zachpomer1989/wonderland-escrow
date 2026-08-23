@@ -77,6 +77,56 @@
       "q": "How do I open escrow?",
       "keywords": ["open escrow", "start escrow", "get started", "new transaction", "submit"],
       "a": "Send us the fully executed purchase agreement and the contact details for both agents, and we'll open the file and issue escrow instructions the same business day. You can start that on our Open Escrow page, or call the office nearest the property."
+    },
+    {
+      "q": "What information do you need to open escrow?",
+      "keywords": ["what do you need", "information to open", "open escrow checklist", "what to provide", "agent checklist"],
+      "a": "From the seller's side: the complete street address and parcel number if you have it, full legal names and marital status of all sellers with addresses and phone numbers, whether the property is owner-occupied or a rental, every lender and lien holder to be paid off (company, loan number, address, phone, approximate balance), the HOA name and management company contact, and any reports already in hand — termite, home protection, natural hazard. From the buyer's side: full names and marital status of all buyers, how they want to take title, new lender information, and fire or hazard insurance details. If a married couple is involved, we need both spouses' full legal names, not just one."
+    },
+    {
+      "q": "What is a Statement of Information?",
+      "keywords": ["statement of information", "statement of identity", "si form", "why do you need my ssn"],
+      "a": "It's a confidential form the title company uses to tell you apart from other people with similar names — so someone else's judgment or lien doesn't attach to your file. Sellers are required to provide it to the escrow holder within seven days of contract acceptance. It goes to the title officer to help clear title, not into any public record."
+    },
+    {
+      "q": "What documents end up in my escrow file?",
+      "keywords": ["escrow file", "documents needed", "paperwork", "file checklist", "closing documents"],
+      "a": "By the time we close, the file holds the purchase contract with all counters and addendums, the deposit receipt, escrow instructions and every amendment, the preliminary title report, the natural hazard disclosure, geological and flood disclosures, payoff statements for any liens, hazard insurance, the home warranty policy, HOA documents if applicable, city reports and retrofit certification where required, a copy of any trust or corporate documents, the foreign-status affidavit if it applies, and the closing statement."
+    },
+    {
+      "q": "Who chooses the escrow company?",
+      "keywords": ["who chooses", "who picks escrow", "can i choose", "select escrow holder", "pick escrow company"],
+      "a": "It's normally agreed between buyer and seller, and if an agent is involved they'll often recommend one. It is genuinely your choice, though — you can ask for a specific escrow holder in the purchase agreement, and it's worth checking who you're actually handing your funds to before you do."
+    },
+    {
+      "q": "What is the difference between an independent and a controlled escrow company?",
+      "keywords": ["independent escrow", "controlled escrow", "licensed escrow", "escrow license", "regulated"],
+      "a": "An independent escrow company is licensed and examined by the state and must meet bonding, trust-account and financial requirements. A controlled escrow operates under an exemption — typically inside a broker, title company, bank or attorney's practice. Both are legal; they're regulated differently. If you want to know which you're dealing with, ask directly and ask who audits their trust account."
+    },
+    {
+      "q": "What are prorations?",
+      "keywords": ["proration", "prorate", "property tax proration", "split taxes", "hoa proration"],
+      "a": "Prorations divide ongoing costs between buyer and seller at the closing date, so each pays only for the days they owned the property. Property taxes, HOA dues, and sometimes rent and security deposits on tenant-occupied property all get prorated. They show as debits and credits on the closing statement."
+    },
+    {
+      "q": "What is a closing statement?",
+      "keywords": ["closing statement", "settlement statement", "final statement", "hud", "line by line"],
+      "a": "The closing statement is the full accounting of your transaction: every credit, every debit, every fee, and the bottom-line figure you receive or bring. Ask for an estimated one up front rather than at the signing table — that's the moment to question anything you don't recognize, not after funds have moved."
+    },
+    {
+      "q": "What do funding and recording mean?",
+      "keywords": ["funding", "recording", "record the deed", "when does it close", "recorded"],
+      "a": "Funding is when the lender releases the loan proceeds to escrow. Recording is when the county recorder enters the deed in the public record and ownership legally transfers. Escrow closes on recording — that's the moment the property is yours, and it's why a same-day funding delay can push a closing to the next business day."
+    },
+    {
+      "q": "What happens if escrow is cancelled?",
+      "keywords": ["cancel escrow", "cancellation", "falls out", "deal fell through", "get my deposit back", "escrow cancelled"],
+      "a": "We can only release funds on written instructions signed by both parties, or on a court order — a cancellation isn't something one side can do unilaterally through us. Third-party costs already incurred, like the title search or reports, are generally still owed. Whether the deposit is refundable comes down to which contingencies were still in place, which is a contract question for your agent."
+    },
+    {
+      "q": "Do you handle refinances?",
+      "keywords": ["refinance", "refi", "no sale", "lower rate", "cash out"],
+      "a": "Yes. A refinance runs through escrow much like a purchase, minus the transfer of ownership: we take the new lender's instructions, order the payoff on your existing loan, coordinate signing, and record the new deed of trust. Shop a few lenders before you commit — the terms vary more than most people expect."
     }
   ]
 }
