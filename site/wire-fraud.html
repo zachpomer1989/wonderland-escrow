@@ -4,13 +4,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Wire Fraud Prevention | Wonderland Escrow</title>
-<meta name="description" content="How Wonderland Escrow protects your funds from real estate wire fraud, and the three rules every buyer and seller should follow.">
+<meta name="description" content="How real estate wire fraud works, the four tells in a fraudulent escrow email, and what Wonderland Escrow does to make sure your funds reach the right account.">
 <link rel="canonical" href="https://wonderlandescrow.com/wire-fraud.html">
-<meta name="robots" content="noindex,follow">
+<meta name="robots" content="index,follow,max-image-preview:large">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Wonderland Escrow">
 <meta property="og:title" content="Wire Fraud Prevention | Wonderland Escrow">
-<meta property="og:description" content="How Wonderland Escrow protects your funds from real estate wire fraud, and the three rules every buyer and seller should follow.">
+<meta property="og:description" content="How real estate wire fraud works, the four tells in a fraudulent escrow email, and what Wonderland Escrow does to make sure your funds reach the right account.">
 <meta property="og:url" content="https://wonderlandescrow.com/wire-fraud.html">
 <link rel="icon" href="assets/logos/mark.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://use.typekit.net" crossorigin>
@@ -95,17 +95,97 @@
   </div>
 </header>
 <main id="main">
-<section class="section section--tight">
-    <div class="shell shell--narrow stack stack-5">
-      <p class="eyebrow">Security</p>
+  <section class="section section--ink section--tight">
+    <div class="shell stack stack-4">
+      <p class="eyebrow eyebrow--sky">Wire Fraud Protection</p>
       <h1 class="h1">Never take wire instructions from an email</h1>
       <span class="rule"></span>
-      <p class="lede">Real estate wire fraud almost always begins with a convincing email. Confirm wiring instructions by phone using a number you already had, and know that Wonderland never changes wire instructions mid-transaction.</p>
-      <div class="card card--cloud stack stack-3" style="margin-top:var(--space-6)">
-        <p class="eyebrow eyebrow--sm">Page Not Finished</p>
-        <p class="small">This page is a placeholder so no link on the site is broken. It is marked <code>noindex</code> until it has real content &mdash; tell Claude what should go here and it gets built out properly.</p>
+      <p class="lede" style="max-width:62ch">Wire fraud is the most expensive thing that can happen in a real estate transaction, and it is not a technical attack. It is a well-written email that arrives at exactly the right moment in your escrow, from an address that looks almost right.</p>
+    </div>
+  </section>
+
+  <section class="section section--ink" style="padding-top:0">
+    <div class="shell grid grid-split">
+      <div class="stack stack-4">
+        <h2 class="h2">This is what one looks like</h2>
+        <span class="rule"></span>
+        <p class="lede">Below is a reconstruction of a real pattern. Four things in it give it away. See how many you find before you read the notes.</p>
+        <p class="body" style="color:var(--text-on-dark-muted)">The people who send these have usually been reading the transaction for weeks, from a compromised mailbox somewhere in the deal. That is why the timing is right and the details are correct.</p>
       </div>
-      <a class="btn btn--secondary" href="index.html" style="align-self:flex-start">Back Home</a>
+      <div class="wf">
+        <div class="wf__head">
+          <p class="eyebrow eyebrow--sky eyebrow--sm">Spot the fake &mdash; four tells</p>
+          <p class="wf__score" aria-live="polite"><span class="wf__count">0</span> of 4 found</p>
+        </div>
+        <div class="wf__mail">
+          <dl class="wf__meta">
+            <dt>From</dt>
+            <dd><button type="button" class="wf__tell" data-tell="domain" aria-pressed="false">Wonderland Escrow &lt;funding@wonderlandescrows.com&gt;</button></dd>
+            <dt>Subject</dt>
+            <dd><button type="button" class="wf__tell" data-tell="urgency" aria-pressed="false">URGENT: wiring instructions updated, closing moved up</button></dd>
+          </dl>
+          <div class="wf__body">
+            <p>Good news &mdash; the lender can record early, so we are moving your closing forward. Your funds need to arrive <button type="button" class="wf__tell" data-tell="pressure" aria-pressed="false">before 3pm today</button> or the rate lock expires.</p>
+            <p>Please note that <button type="button" class="wf__tell" data-tell="newbank" aria-pressed="false">our bank has changed</button>. Use the account details below and disregard the instructions in your opening package.</p>
+            <p class="wf__sig">Reply to this message to confirm receipt. &mdash; Escrow Department</p>
+          </div>
+        </div>
+        <ul class="wf__notes">
+          <li class="wf__note" data-note="domain" hidden><strong>The domain is one letter off.</strong> wonderland<em>escrows</em>.com is not us. Lookalike domains are registered specifically for your transaction.</li>
+          <li class="wf__note" data-note="urgency" hidden><strong>Urgency is the whole technique.</strong> A real closing date change reaches you from your officer by phone, not as a subject line demanding same-day money.</li>
+          <li class="wf__note" data-note="pressure" hidden><strong>A deadline you cannot verify.</strong> Nothing in escrow requires you to wire within hours. If it did, your officer would call you.</li>
+          <li class="wf__note" data-note="newbank" hidden><strong>Wiring instructions never change.</strong> This is the one that costs people their down payment. Our banking details are set when the file opens and stay put.</li>
+        </ul>
+        <p class="wf__done" hidden><strong>That is all four.</strong> The rule that beats every one of them: we never send new wire instructions by email. If anything about a wire looks different, stop and call your officer on the number from your opening package &mdash; never a number in the email.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--cloud">
+    <div class="shell grid grid-split">
+      <div class="stack stack-4">
+        <p class="eyebrow">Our Side Of It</p>
+        <h2 class="h2">What we do about it</h2>
+        <span class="rule"></span>
+        <p class="lede">None of this is optional or situational. It is how every file runs, on every transaction, at every office.</p>
+      </div>
+      <div>
+        <ul class="checks" style="gap:18px">
+          <li><span class="ico" data-i="check"></span>Verbal verification of every wire, every time, on a number we already hold for you</li>
+          <li><span class="ico" data-i="check"></span>We never change wire instructions mid-transaction &mdash; if an email says we did, it did not come from us</li>
+          <li><span class="ico" data-i="check"></span>Encrypted document delivery rather than email attachments</li>
+          <li><span class="ico" data-i="check"></span>Same-business-day confirmation once your funds land</li>
+          <li><span class="ico" data-i="check"></span>Banking details are set when the file opens and stay put until it closes</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="shell stack stack-6">
+      <div class="stack stack-3" style="max-width:60ch">
+        <p class="eyebrow">If Something Looks Wrong</p>
+        <h2 class="h2">Stop, and pick up the phone</h2>
+        <span class="rule"></span>
+        <p class="lede">If you have already sent funds and something feels off, the first hour matters more than anything else. Wires can sometimes be recalled if the banks move quickly.</p>
+      </div>
+      <ol class="wf__steps">
+        <li><strong>Do not reply to the email.</strong> If it is fraudulent, you are writing to the person who sent it.</li>
+        <li><strong>Call your escrow officer</strong> on the number in your opening package, or the office direct line on our <a href="locations.html">locations page</a>. Never a number from the email.</li>
+        <li><strong>Call your bank&rsquo;s fraud line immediately</strong> and ask them to attempt a recall on the wire. Ask for a case number.</li>
+        <li><strong>Report it to the FBI</strong> at <a href="https://www.ic3.gov" rel="noopener">ic3.gov</a>. Their Recovery Asset Team can work with the receiving bank, and they are far more effective the sooner they hear about it.</li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="section section--brand">
+    <div class="shell row" style="justify-content:space-between;gap:var(--space-10)">
+      <div class="stack stack-3" style="max-width:52ch">
+        <p class="eyebrow eyebrow--sky">Not Sure About Something?</p>
+        <h2 class="h2" style="color:#fff">Ask us before you send anything</h2>
+        <p class="lede" style="color:rgba(255,255,255,.82)">There is no such thing as a wire question that is too small. Your officer would far rather take the call.</p>
+      </div>
+      <a class="btn btn--inverse" href="contact.html" style="align-self:center">Talk To An Officer</a>
     </div>
   </section>
 </main>

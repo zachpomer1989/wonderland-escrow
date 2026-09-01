@@ -132,21 +132,21 @@ function initMap() {
    the count. Nothing is scored or sent anywhere -- finding all four just unlocks the rule
    that actually protects people. */
 function initWireFraud() {
-  const wf = document.querySelector('.wf');
-  if (!wf) return;
-  const tells = Array.from(wf.querySelectorAll('.wf__tell'));
-  const count = wf.querySelector('.wf__count');
-  const done = wf.querySelector('.wf__done');
-  let found = 0;
-  tells.forEach((tell) => {
-    tell.addEventListener('click', () => {
-      if (tell.getAttribute('aria-pressed') === 'true') return;
-      tell.setAttribute('aria-pressed', 'true');
-      const note = wf.querySelector(`.wf__note[data-note="${tell.dataset.tell}"]`);
-      if (note) note.hidden = false;
-      found += 1;
-      if (count) count.textContent = String(found);
-      if (found === tells.length && done) done.hidden = false;
+  document.querySelectorAll('.wf').forEach((wf) => {
+    const tells = Array.from(wf.querySelectorAll('.wf__tell'));
+    const count = wf.querySelector('.wf__count');
+    const done = wf.querySelector('.wf__done');
+    let found = 0;
+    tells.forEach((tell) => {
+      tell.addEventListener('click', () => {
+        if (tell.getAttribute('aria-pressed') === 'true') return;
+        tell.setAttribute('aria-pressed', 'true');
+        const note = wf.querySelector(`.wf__note[data-note="${tell.dataset.tell}"]`);
+        if (note) note.hidden = false;
+        found += 1;
+        if (count) count.textContent = String(found);
+        if (found === tells.length && done) done.hidden = false;
+      });
     });
   });
 }
