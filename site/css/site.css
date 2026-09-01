@@ -230,6 +230,38 @@ a.plain,a.card-link{border-bottom:none}
 .wf__done{font-family:var(--font-body);font-size:14px;line-height:1.6;color:var(--text-on-dark);background:rgba(148,216,234,.1);border-left:2px solid var(--wl-sky);padding:var(--space-4)}
 .wf__done strong{color:var(--wl-sky)}
 
+/* ---------- officer directory ----------
+   Cards are built by js/officers.js from the office pages, so nothing here assumes a roster. */
+.dir__controls{display:flex;flex-wrap:wrap;align-items:center;gap:var(--space-4) var(--space-6);padding-bottom:var(--space-5);border-bottom:1px solid var(--border-hairline)}
+.dir__search{position:relative;flex:1 1 300px;min-width:0}
+.dir__search .ico{position:absolute;left:14px;top:50%;transform:translateY(-50%);font-size:16px;color:var(--text-subtle);pointer-events:none}
+.dir__search .input{padding-left:42px}
+.dir__filters{display:flex;flex-wrap:wrap;gap:8px}
+.dir__chip{font-family:var(--font-ui);font-weight:var(--fw-demi);font-size:12.5px;padding:8px 14px;background:var(--surface-card);color:var(--text-muted);border:1px solid var(--border-strong);border-radius:var(--radius-pill);cursor:pointer;transition:background var(--duration-fast) var(--ease-standard),color var(--duration-fast) var(--ease-standard),border-color var(--duration-fast) var(--ease-standard)}
+.dir__chip:hover{border-color:var(--wl-blue);color:var(--text-brand)}
+.dir__chip.is-on{background:var(--wl-ink);border-color:var(--wl-ink);color:var(--wl-white)}
+.dir__count{font-family:var(--font-ui);font-weight:var(--fw-heavy);font-size:12px;letter-spacing:var(--ls-caps);text-transform:uppercase;color:var(--text-subtle)}
+.dir__grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:1px;background:var(--border-hairline);border:1px solid var(--border-hairline)}
+.dir__grid:empty{display:none}
+.dir__card{display:flex;gap:var(--space-4);padding:var(--space-5);background:var(--surface-card)}
+.dir__photo{flex:none;width:78px;height:78px;overflow:hidden;border-radius:var(--radius-circle);background:var(--wl-cloud)}
+.dir__photo img{width:100%;height:100%;object-fit:cover}
+.dir__photo--none{display:flex;align-items:center;justify-content:center}
+.dir__body{min-width:0;display:flex;flex-direction:column;gap:3px}
+.dir__name{font-family:var(--font-heading);font-size:var(--fs-h5);line-height:1.25;letter-spacing:var(--ls-heading);color:var(--text-heading)}
+.dir__title{font-family:var(--font-ui);font-size:12px;line-height:1.4;color:var(--text-muted)}
+.dir__office{display:inline-flex;align-items:center;gap:5px;align-self:flex-start;margin-top:2px;font-family:var(--font-ui);font-weight:var(--fw-heavy);font-size:10.5px;letter-spacing:var(--ls-caps);text-transform:uppercase;color:var(--text-brand);border-bottom:none}
+.dir__office:hover{color:var(--wl-blue-700);text-decoration:underline;text-underline-offset:3px}
+.dir__contact{display:flex;flex-direction:column;gap:3px;margin-top:6px;min-width:0}
+.dir__contact a{display:flex;align-items:center;gap:7px;font-family:var(--font-ui);font-size:12.5px;color:var(--text-body);border-bottom:none;overflow-wrap:anywhere}
+.dir__contact a:hover{color:var(--text-brand)}
+.dir__contact .ico{flex:none;color:var(--text-subtle)}
+.dir__empty,.dir__fallback{font-family:var(--font-body);color:var(--text-muted);padding:var(--space-6) 0}
+@media (max-width:520px){
+  .dir__card{gap:var(--space-3);padding:var(--space-4)}
+  .dir__photo{width:60px;height:60px}
+}
+
 /* ---------- hero ---------- */
 .hero{position:relative;min-height:min(84vh,720px);display:flex;align-items:flex-end;overflow:hidden;background:var(--wl-ink)}
 .hero__media,.hero__media video,.hero__media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}

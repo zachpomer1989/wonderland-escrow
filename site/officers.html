@@ -3,15 +3,15 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Open Escrow | Submit a New Transaction | Wonderland Escrow</title>
-<meta name="description" content="Open escrow with Wonderland Escrow. Send the executed purchase agreement and we issue escrow instructions the same business day. Five Southern California offices.">
-<link rel="canonical" href="https://wonderlandescrow.com/open-escrow.html">
+<title>Find Your Escrow Officer | Wonderland Escrow Directory</title>
+<meta name="description" content="Search every Wonderland Escrow officer across our five Southern California offices by name or location, with direct phone numbers and email addresses.">
+<link rel="canonical" href="https://wonderlandescrow.com/officers.html">
 <meta name="robots" content="index,follow,max-image-preview:large">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Wonderland Escrow">
-<meta property="og:title" content="Open Escrow | Submit a New Transaction | Wonderland Escrow">
-<meta property="og:description" content="Open escrow with Wonderland Escrow. Send the executed purchase agreement and we issue escrow instructions the same business day. Five Southern California offices.">
-<meta property="og:url" content="https://wonderlandescrow.com/open-escrow.html">
+<meta property="og:title" content="Find Your Escrow Officer | Wonderland Escrow Directory">
+<meta property="og:description" content="Search every Wonderland Escrow officer across our five Southern California offices by name or location, with direct phone numbers and email addresses.">
+<meta property="og:url" content="https://wonderlandescrow.com/officers.html">
 <link rel="icon" href="assets/logos/mark.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://use.typekit.net" crossorigin>
 <link rel="stylesheet" href="css/wonderland.css?v=dev">
@@ -95,60 +95,40 @@
   </div>
 </header>
 <main id="main">
-<section class="section section--ink section--tight">
+  <section class="section section--ink section--tight">
     <div class="shell stack stack-4">
-      <p class="eyebrow eyebrow--sky">For Agents &amp; Lenders</p>
-      <h1 class="h1">Open escrow</h1>
+      <p class="eyebrow eyebrow--sky">Directory</p>
+      <h1 class="h1">Find your escrow officer</h1>
       <span class="rule"></span>
-      <p class="lede" style="max-width:58ch">Send us the fully executed purchase agreement and both agents&rsquo; contact details. We open the file and issue escrow instructions the same business day.</p>
+      <p class="lede" style="max-width:60ch">Every officer across all five offices, with a direct line and an email address. Search by name if you know who you are looking for, or filter by office if you do not.</p>
     </div>
   </section>
 
-  <section class="section section--tight">
-    <div class="shell grid grid-split">
-      <form class="card stack stack-5" method="post" action="/api/open-escrow" enctype="multipart/form-data">
-        <fieldset class="fs stack stack-5"><legend class="h5">The transaction</legend>
-          <div class="field"><label class="field__label" for="o-property">Property address <span class="req">*</span></label><input class="input" id="o-property" name="property" required placeholder="1234 Oak Crest Dr, Westlake Village, CA 91361"></div>
-          <div class="grid grid-2" style="gap:var(--space-5)">
-            <div class="field"><label class="field__label" for="o-price">Sale price</label><div class="input-money"><input class="input" id="o-price" name="price" inputmode="numeric" placeholder="1,250,000"></div></div>
-            <div class="field"><label class="field__label" for="o-close">Target closing date</label><input class="input" id="o-close" name="closing" type="date"></div>
-            <div class="field"><label class="field__label" for="o-type">Transaction type</label><select class="select" id="o-type" name="type"><option>Residential resale</option><option>Refinance</option><option>New construction</option><option>1031 exchange</option><option>Commercial / investment</option><option>Mobile home</option><option>Lease land</option></select></div>
-            <div class="field"><label class="field__label" for="o-office">Preferred office</label><select class="select" id="o-office" name="office"><option value="">Nearest to the property</option><option>Sherman Oaks</option><option>Santa Clarita</option><option>Westlake Village</option><option>Rancho Mirage</option><option>La Quinta</option></select></div>
-          </div>
-        </fieldset>
-        <fieldset class="fs stack stack-5"><legend class="h5">You</legend>
-          <div class="grid grid-2" style="gap:var(--space-5)">
-            <div class="field"><label class="field__label" for="o-name">Your name <span class="req">*</span></label><input class="input" id="o-name" name="name" required></div>
-            <div class="field"><label class="field__label" for="o-side">You represent</label><select class="select" id="o-side" name="side"><option>Buyer</option><option>Seller</option><option>Both</option><option>Lender</option></select></div>
-            <div class="field"><label class="field__label" for="o-brokerage">Brokerage</label><input class="input" id="o-brokerage" name="brokerage"></div>
-            <div class="field"><label class="field__label" for="o-dre">DRE #</label><input class="input" id="o-dre" name="dre"></div>
-            <div class="field"><label class="field__label" for="o-email">Email <span class="req">*</span></label><input class="input" id="o-email" name="email" type="email" required></div>
-            <div class="field"><label class="field__label" for="o-phone">Phone</label><input class="input" id="o-phone" name="phone" type="tel"></div>
-          </div>
-        </fieldset>
-        <fieldset class="fs stack stack-5"><legend class="h5">The contract</legend>
-          <div class="field"><label class="field__label" for="o-file">Executed purchase agreement (PDF)</label><input class="input" id="o-file" name="contract" type="file" accept="application/pdf"><span class="field__hint">Upload is encrypted in transit. Never email us wire instructions or account numbers.</span></div>
-          <div class="field"><label class="field__label" for="o-notes">Anything we should know</label><textarea class="textarea" id="o-notes" name="notes" rows="3" placeholder="Short escrow, out-of-state seller, HOA, tenant in place&hellip;"></textarea></div>
-        </fieldset>
-        <button class="btn btn--primary btn--full btn--lg" type="submit">Submit &amp; Open Escrow <span class="ico" data-i="arrow-right"></span></button>
-      </form>
+  <section class="section">
+    <div class="shell stack stack-6">
+      <div class="dir__controls">
+        <div class="dir__search">
+          <span class="ico" data-i="search" aria-hidden="true"></span>
+          <label class="sr-only" for="dir-q">Search officers by name</label>
+          <input class="input" type="search" id="dir-q" placeholder="Search by name&hellip;" autocomplete="off" spellcheck="false">
+        </div>
+        <div class="dir__filters" role="group" aria-label="Filter by office">
+          <button type="button" class="dir__chip is-on" data-office="">All offices</button>
+          <button type="button" class="dir__chip" data-office="santa-clarita">Santa Clarita</button>
+          <button type="button" class="dir__chip" data-office="los-angeles">Los Angeles</button>
+          <button type="button" class="dir__chip" data-office="conejo-valley">Conejo Valley</button>
+          <button type="button" class="dir__chip" data-office="coachella-valley">Coachella West</button>
+          <button type="button" class="dir__chip" data-office="coachella-valley-east">Coachella East</button>
+        </div>
+      </div>
 
-      <aside class="stack stack-6">
-        <div class="card card--cloud stack stack-4">
-          <p class="eyebrow eyebrow--sm">What Happens Next</p>
-          <ul class="checks">
-            <li><span class="ico" data-i="check"></span>We confirm receipt within the hour on business days</li>
-            <li><span class="ico" data-i="check"></span>Escrow number and instructions issued same day</li>
-            <li><span class="ico" data-i="check"></span>Title ordered and preliminary report requested</li>
-            <li><span class="ico" data-i="check"></span>Your officer calls both agents to introduce themselves</li>
-          </ul>
-        </div>
-        <div class="card card--ink stack stack-4">
-          <p class="eyebrow eyebrow--sky eyebrow--sm">Prefer To Call?</p>
-          <p class="small" style="color:var(--text-on-dark-muted)">Call the office nearest the property and we will open it on the phone.</p>
-          <a class="btn btn--accent btn--full" href="locations.html">Find An Office</a>
-        </div>
-      </aside>
+      <p class="dir__count" id="dir-count" aria-live="polite">Loading the directory&hellip;</p>
+      <div class="dir__grid" id="dir-grid"></div>
+      <p class="dir__empty" id="dir-empty" hidden>No officer by that name. Try a partial spelling, or clear the office filter.</p>
+      <p class="dir__fallback" id="dir-fallback" hidden>The directory could not load. Every officer is listed on the office pages: <a href="office-santa-clarita.html">Santa Clarita Valley</a>, <a href="office-los-angeles.html">Los Angeles</a>, <a href="office-conejo-valley.html">Conejo Valley</a>, <a href="office-coachella-valley.html">Coachella Valley West</a> and <a href="office-coachella-valley-east.html">Coachella Valley East</a>.</p>
+      <noscript>
+        <p class="dir__fallback">This directory needs JavaScript. Every officer is listed on the office pages: <a href="office-santa-clarita.html">Santa Clarita Valley</a>, <a href="office-los-angeles.html">Los Angeles</a>, <a href="office-conejo-valley.html">Conejo Valley</a>, <a href="office-coachella-valley.html">Coachella Valley West</a> and <a href="office-coachella-valley-east.html">Coachella Valley East</a>.</p>
+      </noscript>
     </div>
   </section>
 </main>
@@ -182,6 +162,7 @@
   </div>
 </footer>
 <script src="js/site.js?v=dev"></script>
+<script src="js/officers.js?v=dev" defer></script>
 <script src="js/chat.js?v=dev" defer></script>
 </body>
 </html>
