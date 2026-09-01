@@ -25,15 +25,12 @@ RewriteRule ^ https://%1%{REQUEST_URI} [R=301,L]
 
 <IfModule mod_expires.c>
   ExpiresActive On
-  # CSS and JS are deliberately SHORT-lived. Nothing here is fingerprinted -- the filenames
-  # never change, and site.css is reached through an @import inside wonderland.css, so a
-  # ?v= query on the <link> would not refresh it either. With a long max-age a returning
-  # visitor keeps stale CSS for the life of the cache and simply does not see a deploy.
-  # Apache still sends ETag/Last-Modified, so these revalidate into cheap 304s.
-  # If you ever want year-long immutable caching back, fingerprint the filenames first
-  # (site.a1b2c3.css) and update both the <link> tags and the @import list.
-  ExpiresByType text/css "access plus 5 minutes"
-  ExpiresByType application/javascript "access plus 5 minutes"
+  # Safe to cache hard: every css/js reference carries a ?v= stamped with the deploy commit
+  # (see .github/workflows/deploy.yml), including the @import list in wonderland.css and the
+  # fee-schedule module import. Note SiteGround fronts static files with nginx, which ignores
+  # these directives entirely -- the version query is what actually busts the cache.
+  ExpiresByType text/css "access plus 1 year"
+  ExpiresByType application/javascript "access plus 1 year"
   ExpiresByType image/svg+xml "access plus 1 year"
   ExpiresByType image/jpeg "access plus 1 year"
   ExpiresByType text/html "access plus 0 seconds"

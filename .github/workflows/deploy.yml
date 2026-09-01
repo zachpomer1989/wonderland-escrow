@@ -40,6 +40,20 @@ jobs:
             exit 1
           fi
 
+      - name: Stamp the asset version
+        run: |
+          # SiteGround serves static files from nginx, which ignores .htaccess and caches
+          # css/js for a year. Nothing is fingerprinted, so without this every deploy stays
+          # invisible to returning visitors. Swap the ?v=dev placeholder for this commit.
+          V="${GITHUB_SHA::8}"
+          find site -type f \( -name '*.html' -o -name '*.css' -o -name '*.js' \) \
+            -exec sed -i "s/?v=dev/?v=$V/g" {} +
+          echo "Asset version: $V"
+          if grep -rn '?v=dev' site/ ; then
+            echo "::error::A ?v=dev placeholder survived the stamp."
+            exit 1
+          fi
+
       - name: Install SSH key
         run: |
           mkdir -p ~/.ssh

@@ -14,7 +14,7 @@
    ========================================================================== */
 (() => {
   const API = '/api/chat';
-  const FAQ_URL = 'content/escrow-faq.json';
+  const FAQ_URL = 'content/escrow-faq.json?v=dev';
   const STORE = 'wl-chat-log';
 
   let faq = null;

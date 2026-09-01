@@ -1,6 +1,6 @@
 /* Wonderland Escrow — net sheet calculator.
    All dollar amounts and rates come from fee-schedule.js. Nothing is hard-coded here. */
-import { SCHEDULE, escrowFee, titlePremium, countyTransferTax, cityTransferTax, taxProration } from './fee-schedule.js';
+import { SCHEDULE, escrowFee, titlePremium, countyTransferTax, cityTransferTax, taxProration } from './fee-schedule.js?v=dev';
 
 const money = (n) => (n < 0 ? '−' : '') + '$' + Math.abs(Math.round(n)).toLocaleString('en-US');
 const num = (id) => {

@@ -94,6 +94,20 @@ remove it. The workflow uses `--delete`, so a wrong `SG_PATH` will delete files.
 
 The workflow also fails the build if an Anthropic key ever appears in client-delivered code.
 
+### Cache busting
+
+Every `css`/`js` reference is written as `…?v=dev` in the repo, and the deploy workflow
+rewrites that placeholder to the deploy commit's short SHA before it rsyncs. That includes the
+`@import` list in `css/wonderland.css` — `site.css` is only reachable through it, so versioning
+the `<link>` alone would not help — and the `./fee-schedule.js` module import.
+
+This matters because **SiteGround serves static files from nginx, which ignores `.htaccess`**
+and caches css/js for a year regardless of what the `mod_expires` block says. Without the
+version query, a returning visitor keeps stale assets and never sees a deploy.
+
+If you add a new stylesheet or script, reference it as `whatever.css?v=dev` so the workflow
+picks it up. The build fails if a `?v=dev` placeholder survives the stamp.
+
 ## Before launch — open items
 
 1. **⚠️ Every number in `js/fee-schedule.js` is a placeholder** based on typical Southern
