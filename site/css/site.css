@@ -106,18 +106,52 @@ a.plain,a.card-link{border-bottom:none}
 .section--ink .checks .ico{color:var(--wl-sky)}
 
 /* ---------- header ---------- */
-.masthead{position:sticky;top:0;z-index:60;background:var(--glass);backdrop-filter:var(--glass-blur);-webkit-backdrop-filter:var(--glass-blur);border-bottom:1px solid var(--border-hairline)}
+.masthead{position:sticky;top:0;z-index:60;background:var(--glass);border-bottom:1px solid var(--border-hairline)}
+/* The blur lives on a pseudo-element, not on .masthead itself: a backdrop-filtered box
+   composites its absolutely-positioned children oddly where they overflow it, which made the
+   mega panel look translucent. This keeps the glass on the bar and leaves the panel clean. */
+.masthead::before{content:"";position:absolute;inset:0;z-index:-1;backdrop-filter:var(--glass-blur);-webkit-backdrop-filter:var(--glass-blur);pointer-events:none}
 .masthead__bar{display:flex;align-items:center;justify-content:space-between;gap:var(--space-8);height:var(--nav-height)}
 .masthead__logo{display:flex;border-bottom:none}
 .masthead__logo img{height:46px;width:auto}
 .nav{display:flex;align-items:center;gap:var(--space-8)}
 .nav__link{font-family:var(--font-ui);font-weight:var(--fw-heavy);font-size:12px;letter-spacing:var(--ls-caps);text-transform:uppercase;color:var(--text-heading);border-bottom:2px solid transparent;padding-block:4px;background:none;border-inline:none;border-top:none;cursor:pointer}
 .nav__link:hover,.nav__link[aria-current="page"]{color:var(--text-brand);border-bottom-color:var(--wl-sky)}
-.nav__group{position:relative}
-.nav__menu{position:absolute;top:100%;left:-16px;min-width:230px;background:var(--surface-card);border:1px solid var(--border-hairline);box-shadow:var(--shadow-md);padding:var(--space-3) 0;opacity:0;visibility:hidden;transform:translateY(-4px);transition:opacity var(--duration-fast) var(--ease-standard),transform var(--duration-fast) var(--ease-standard),visibility var(--duration-fast)}
-.nav__group:hover .nav__menu,.nav__group:focus-within .nav__menu{opacity:1;visibility:visible;transform:none}
-.nav__menu a{display:block;padding:10px 20px;font-family:var(--font-ui);font-size:14px;color:var(--text-body);border-bottom:none}
-.nav__menu a:hover{background:var(--wl-cloud);color:var(--text-brand)}
+.nav__group{position:static}
+.nav__link--mega .ico{transition:transform var(--duration-fast) var(--ease-standard)}
+.nav__group:hover .nav__link--mega .ico,.nav__link--mega[aria-expanded="true"] .ico{transform:rotate(180deg)}
+
+/* ---------- mega menu ----------
+   Full-bleed panel hung off the sticky masthead (which is the containing block, so the
+   panel spans the viewport while the trigger sits inside .shell). The W mark bleeds through
+   the back of it at low opacity — same watermark idiom as .section__wmark. */
+.mega{position:absolute;left:0;right:0;top:100%;z-index:55;overflow:hidden;background:var(--surface-card);border-top:1px solid var(--border-hairline);border-bottom:3px solid var(--wl-blue);box-shadow:var(--shadow-lg);opacity:0;visibility:hidden;transform:translateY(-10px);transition:opacity var(--duration-fast) var(--ease-standard),transform var(--duration-base) var(--ease-out),visibility var(--duration-base)}
+.nav__group:hover .mega,.mega.is-open{opacity:1;visibility:visible;transform:none}
+.mega::before{content:"";position:absolute;inset:0;z-index:0;background:linear-gradient(115deg,var(--wl-sky-100) 0%,rgba(255,255,255,0) 54%);pointer-events:none}
+.mega__wmark{position:absolute;z-index:0;right:3%;top:-14%;height:128%;width:auto;max-width:none;opacity:.085;pointer-events:none;user-select:none}
+.mega__inner{position:relative;z-index:1;display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:var(--space-10);padding-block:var(--space-8)}
+.mega__eyebrow{margin:0 0 var(--space-4)}
+
+.mega__grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:var(--border-hairline);border:1px solid var(--border-hairline)}
+.mega__office{display:flex;flex-direction:column;gap:6px;padding:var(--space-4) var(--space-5);background:var(--surface-card);border-bottom:none;transition:background var(--duration-fast) var(--ease-standard),box-shadow var(--duration-fast) var(--ease-standard)}
+.mega__office:hover{background:var(--wl-cloud);box-shadow:inset 3px 0 0 0 var(--wl-sky)}
+.mega__office-name{font-family:var(--font-ui);font-weight:var(--fw-heavy);font-size:14px;letter-spacing:var(--ls-heading);color:var(--text-heading);transition:color var(--duration-fast) var(--ease-standard)}
+.mega__office:hover .mega__office-name{color:var(--text-brand)}
+.mega__office-addr{font-family:var(--font-body);font-size:13px;line-height:1.5;color:var(--text-muted)}
+.mega__office-meta{font-family:var(--font-ui);font-weight:var(--fw-demi);font-size:13px;color:var(--text-brand);margin-top:auto;padding-top:6px}
+.mega__office--all{background:var(--wl-ink);justify-content:center}
+.mega__office--all:hover{background:var(--wl-blue);box-shadow:none}
+.mega__office--all .mega__office-name,.mega__office--all:hover .mega__office-name{color:var(--wl-white);display:flex;align-items:center;gap:8px}
+.mega__office--all .mega__office-addr{color:var(--text-on-dark-muted)}
+
+.mega__rail{align-self:start}
+.mega__rail-links{display:flex;flex-direction:column;gap:1px;background:var(--border-hairline);border:1px solid var(--border-hairline)}
+.mega__rail-link{display:flex;align-items:flex-start;gap:var(--space-3);padding:var(--space-4) var(--space-5);background:var(--surface-card);border-bottom:none;transition:background var(--duration-fast) var(--ease-standard)}
+.mega__rail-link:hover{background:var(--wl-cloud)}
+.mega__rail-link .ico{font-size:18px;color:var(--wl-blue);flex:none;margin-top:1px}
+.mega__rail-link strong{display:block;font-family:var(--font-ui);font-weight:var(--fw-heavy);font-size:13px;color:var(--text-heading);transition:color var(--duration-fast) var(--ease-standard)}
+.mega__rail-link:hover strong{color:var(--text-brand)}
+.mega__rail-sub{display:block;font-family:var(--font-body);font-size:12.5px;line-height:1.45;color:var(--text-muted);margin-top:3px}
 .nav__toggle{display:none;background:none;border:1px solid var(--border-strong);border-radius:var(--radius-sm);padding:9px 11px;cursor:pointer}
 
 /* ---------- hero ---------- */
@@ -193,6 +227,8 @@ a.plain,a.card-link{border-bottom:none}
 
 /* ---------- responsive ---------- */
 @media (max-width:1040px){
+  .mega__inner{grid-template-columns:minmax(0,1fr) 260px;gap:var(--space-8)}
+  .mega__grid{grid-template-columns:repeat(2,minmax(0,1fr))}
   .grid-4{grid-template-columns:repeat(2,minmax(0,1fr))}
   .grid-split,.grid-split-wide{grid-template-columns:1fr;gap:var(--space-12)}
   .footer__cols{grid-template-columns:1fr;gap:var(--space-12)}
@@ -200,9 +236,15 @@ a.plain,a.card-link{border-bottom:none}
 @media (max-width:820px){
   :root{--pad-section:var(--space-16);--pad-section-tight:var(--space-12);--gutter:var(--space-5)}
   .nav{display:none}
-  .nav.is-open{display:flex;position:absolute;top:var(--nav-height);left:0;right:0;flex-direction:column;align-items:stretch;gap:0;background:var(--surface-card);border-bottom:1px solid var(--border-hairline);box-shadow:var(--shadow-md);padding:var(--space-4) var(--gutter) var(--space-6)}
+  .nav.is-open{display:flex;position:absolute;top:var(--nav-height);left:0;right:0;max-height:calc(100dvh - var(--nav-height));overflow-y:auto;overscroll-behavior:contain;flex-direction:column;align-items:stretch;gap:0;background:var(--surface-card);border-bottom:1px solid var(--border-hairline);box-shadow:var(--shadow-md);padding:var(--space-4) var(--gutter) var(--space-6)}
   .nav.is-open .nav__link{padding:14px 0;border-bottom:1px solid var(--border-hairline);text-align:left}
-  .nav.is-open .nav__menu{position:static;opacity:1;visibility:visible;transform:none;border:none;box-shadow:none;padding:0 0 var(--space-3) var(--space-4)}
+  .nav.is-open .mega{position:static;opacity:1;visibility:visible;transform:none;background:none;border:none;box-shadow:none;overflow:visible}
+  .nav.is-open .mega::before,.nav.is-open .mega__wmark{display:none}
+  .nav.is-open .mega .shell{padding-inline:0;max-width:none}
+  .nav.is-open .mega__inner{grid-template-columns:1fr;gap:var(--space-5);padding-block:var(--space-4) var(--space-5)}
+  .nav.is-open .mega__grid{grid-template-columns:1fr}
+  .nav.is-open .mega__office--all{display:none}
+  .nav.is-open .mega__rail{display:none}
   .nav.is-open .btn{margin-top:var(--space-4)}
   .nav__toggle{display:inline-flex}
   .grid-2,.grid-3,.grid-4{grid-template-columns:1fr}

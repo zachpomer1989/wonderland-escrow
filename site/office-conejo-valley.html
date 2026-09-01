@@ -96,14 +96,63 @@
     <a class="masthead__logo" href="index.html" aria-label="Wonderland Escrow home"><img src="assets/logos/horizontal-light.svg" alt="Wonderland Escrow" width="465" height="144"></a>
     <button class="nav__toggle" aria-expanded="false" aria-label="Open menu"><span class="ico" data-i="menu" style="font-size:20px"></span></button>
     <nav class="nav" aria-label="Main">
-      <div class="nav__group">
-        <a class="nav__link" href="locations.html">Locations <span class="ico" data-i="chevron-down" style="font-size:12px"></span></a>
-        <div class="nav__menu">
-          <a href="office-santa-clarita.html">Santa Clarita Valley</a>
-          <a href="office-los-angeles.html">Los Angeles</a>
-          <a href="office-conejo-valley.html">Conejo Valley</a>
-          <a href="office-coachella-valley.html">Coachella Valley West</a>
-          <a href="office-coachella-valley-east.html">Coachella Valley East</a>
+      <div class="nav__group" data-mega>
+        <a class="nav__link nav__link--mega" href="locations.html" aria-controls="megaLocations" aria-expanded="false">Locations <span class="ico" data-i="chevron-down" style="font-size:12px"></span></a>
+        <div class="mega" id="megaLocations">
+          <img class="mega__wmark" src="assets/logos/w.svg" alt="" aria-hidden="true">
+          <div class="shell mega__inner">
+            <div class="mega__offices">
+              <p class="eyebrow mega__eyebrow">Five offices, one standard</p>
+              <div class="mega__grid">
+                <a class="mega__office" href="office-santa-clarita.html">
+                  <span class="mega__office-name">Santa Clarita Valley</span>
+                  <span class="mega__office-addr">25152 Springfield Court #240<br>Santa Clarita, CA 91355</span>
+                  <span class="mega__office-meta">(661) 210-3615</span>
+                </a>
+                <a class="mega__office" href="office-los-angeles.html">
+                  <span class="mega__office-name">Los Angeles</span>
+                  <span class="mega__office-addr">13412 Ventura Blvd #200<br>Sherman Oaks, CA 91423</span>
+                  <span class="mega__office-meta">(818) 650-8950</span>
+                </a>
+                <a class="mega__office" href="office-conejo-valley.html">
+                  <span class="mega__office-name">Conejo Valley</span>
+                  <span class="mega__office-addr">31365 Oak Crest Drive #200<br>Westlake Village, CA 91361</span>
+                  <span class="mega__office-meta">(805) 869-1790</span>
+                </a>
+                <a class="mega__office" href="office-coachella-valley.html">
+                  <span class="mega__office-name">Coachella Valley West</span>
+                  <span class="mega__office-addr">70-115 Highway 111, Suite #110<br>Rancho Mirage, CA 92270</span>
+                  <span class="mega__office-meta">(760) 248-3070</span>
+                </a>
+                <a class="mega__office" href="office-coachella-valley-east.html">
+                  <span class="mega__office-name">Coachella Valley East</span>
+                  <span class="mega__office-addr">47050 Washington Street, Suite #4202<br>La Quinta, CA 92253</span>
+                  <span class="mega__office-meta">Meet the team</span>
+                </a>
+                <a class="mega__office mega__office--all" href="locations.html">
+                  <span class="mega__office-name">All locations <span class="ico" data-i="arrow-right" style="font-size:14px"></span></span>
+                  <span class="mega__office-addr">Coverage, hours and directions for every Wonderland office.</span>
+                </a>
+              </div>
+            </div>
+            <div class="mega__rail">
+              <p class="eyebrow eyebrow--muted mega__eyebrow">Start here</p>
+              <div class="mega__rail-links">
+                <a class="mega__rail-link" href="open-escrow.html">
+                  <span class="ico" data-i="file-plus-2"></span>
+                  <span><strong>Open Escrow</strong><span class="mega__rail-sub">Send us a new transaction</span></span>
+                </a>
+                <a class="mega__rail-link" href="net-sheet.html">
+                  <span class="ico" data-i="calculator"></span>
+                  <span><strong>Net Sheet</strong><span class="mega__rail-sub">Estimate closing costs and proceeds</span></span>
+                </a>
+                <a class="mega__rail-link" href="escrow-101.html">
+                  <span class="ico" data-i="book-open"></span>
+                  <span><strong>Escrow 101</strong><span class="mega__rail-sub">How escrow works, open to close</span></span>
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
       <a class="nav__link" href="net-sheet.html">Net Sheet</a>

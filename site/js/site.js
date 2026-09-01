@@ -27,6 +27,51 @@ function initNav() {
   }));
 }
 
+
+/* Mega menu. CSS already opens it on :hover and :focus-within, so this only adds what CSS
+   cannot: a first-tap-opens rule for touch, and Escape to close. Below 821px the panel is
+   part of the stacked mobile nav and none of this applies. */
+function initMega() {
+  const isDesktop = () => window.matchMedia("(min-width:821px)").matches;
+  document.querySelectorAll("[data-mega]").forEach((group) => {
+    const link = group.querySelector("[aria-controls]");
+    const panel = link && document.getElementById(link.getAttribute("aria-controls"));
+    if (!panel) return;
+    const set = (open) => {
+      panel.classList.toggle("is-open", open);
+      link.setAttribute("aria-expanded", String(open));
+    };
+    // Escape dismisses the panel while focus stays on the trigger; without this flag the
+    // focus handler below would immediately reopen it.
+    let dismissed = false;
+    group.addEventListener("pointerenter", (e) => {
+      if (!isDesktop() || e.pointerType !== "mouse") return;
+      dismissed = false;
+      set(true);
+    });
+    group.addEventListener("pointerleave", (e) => { if (isDesktop() && e.pointerType === "mouse") set(false); });
+    group.addEventListener("focusin", () => { if (isDesktop() && !dismissed) set(true); });
+    group.addEventListener("focusout", () => {
+      if (!isDesktop() || group.contains(document.activeElement)) return;
+      dismissed = false;
+      set(false);
+    });
+    link.addEventListener("click", (e) => {
+      // Touch has no hover: the first tap reveals the panel, a second follows the link.
+      if (isDesktop() && !window.matchMedia("(hover:hover)").matches && !panel.classList.contains("is-open")) {
+        e.preventDefault();
+        set(true);
+      }
+    });
+    document.addEventListener("keydown", (e) => {
+      if (e.key !== "Escape" || !panel.classList.contains("is-open")) return;
+      set(false);
+      dismissed = true;
+      link.focus();
+    });
+  });
+}
+
 function initReveal() {
   const items = document.querySelectorAll('.reveal');
   if (!items.length) return;
@@ -56,6 +101,7 @@ function markCurrentPage() {
 document.addEventListener('DOMContentLoaded', () => {
   paintIcons();
   initNav();
+  initMega();
   initReveal();
   markCurrentPage();
 });
