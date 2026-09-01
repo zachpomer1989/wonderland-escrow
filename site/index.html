@@ -78,7 +78,7 @@
                 <a class="mega__office" href="office-coachella-valley-east.html">
                   <span class="mega__office-name">Coachella Valley East</span>
                   <span class="mega__office-addr">47050 Washington Street, Suite #4202<br>La Quinta, CA 92253</span>
-                  <span class="mega__office-meta">Meet the team</span>
+                  <span class="mega__office-meta">(760) 895-6380</span>
                 </a>
                 <a class="mega__office mega__office--all" href="locations.html">
                   <span class="mega__office-name">All locations <span class="ico" data-i="arrow-right" style="font-size:14px"></span></span>
@@ -223,12 +223,32 @@
         <a class="btn btn--inverse-blue" href="wire-fraud.html" style="align-self:flex-start">How We Protect You</a>
       </div>
       <div class="reveal">
-        <ul class="checks" style="gap:18px">
-          <li><span class="ico" data-i="check"></span>Verbal verification of every wire, every time</li>
-          <li><span class="ico" data-i="check"></span>We never change wire instructions mid-transaction</li>
-          <li><span class="ico" data-i="check"></span>Encrypted document delivery, not email attachments</li>
-          <li><span class="ico" data-i="check"></span>Same-business-day confirmation that funds landed</li>
-        </ul>
+        <div class="wf">
+          <div class="wf__head">
+            <p class="eyebrow eyebrow--sky eyebrow--sm">Spot the fake &mdash; four tells</p>
+            <p class="wf__score" aria-live="polite"><span class="wf__count">0</span> of 4 found</p>
+          </div>
+          <div class="wf__mail">
+            <dl class="wf__meta">
+              <dt>From</dt>
+              <dd><button type="button" class="wf__tell" data-tell="domain" aria-pressed="false">Wonderland Escrow &lt;funding@wonderlandescrows.com&gt;</button></dd>
+              <dt>Subject</dt>
+              <dd><button type="button" class="wf__tell" data-tell="urgency" aria-pressed="false">URGENT: wiring instructions updated, closing moved up</button></dd>
+            </dl>
+            <div class="wf__body">
+              <p>Good news &mdash; the lender can record early, so we are moving your closing forward. Your funds need to arrive <button type="button" class="wf__tell" data-tell="pressure" aria-pressed="false">before 3pm today</button> or the rate lock expires.</p>
+              <p>Please note that <button type="button" class="wf__tell" data-tell="newbank" aria-pressed="false">our bank has changed</button>. Use the account details below and disregard the instructions in your opening package.</p>
+              <p class="wf__sig">Reply to this message to confirm receipt. &mdash; Escrow Department</p>
+            </div>
+          </div>
+          <ul class="wf__notes">
+            <li class="wf__note" data-note="domain" hidden><strong>The domain is one letter off.</strong> wonderland<em>escrows</em>.com is not us. Lookalike domains are registered specifically for your transaction.</li>
+            <li class="wf__note" data-note="urgency" hidden><strong>Urgency is the whole technique.</strong> A real closing date change reaches you from your officer by phone, not as a subject line demanding same-day money.</li>
+            <li class="wf__note" data-note="pressure" hidden><strong>A deadline you cannot verify.</strong> Nothing in escrow requires you to wire within hours. If it did, your officer would call you.</li>
+            <li class="wf__note" data-note="newbank" hidden><strong>Wiring instructions never change.</strong> This is the one that costs people their down payment. Our banking details are set when the file opens and stay put.</li>
+          </ul>
+          <p class="wf__done" hidden><strong>That is all four.</strong> The rule that beats every one of them: we never send new wire instructions by email. If anything about a wire looks different, stop and call your officer on the number from your opening package &mdash; never a number in the email.</p>
+        </div>
       </div>
     </div>
   </section>

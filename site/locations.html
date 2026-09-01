@@ -55,7 +55,7 @@
                 <a class="mega__office" href="office-coachella-valley-east.html">
                   <span class="mega__office-name">Coachella Valley East</span>
                   <span class="mega__office-addr">47050 Washington Street, Suite #4202<br>La Quinta, CA 92253</span>
-                  <span class="mega__office-meta">Meet the team</span>
+                  <span class="mega__office-meta">(760) 895-6380</span>
                 </a>
                 <a class="mega__office mega__office--all" href="locations.html">
                   <span class="mega__office-name">All locations <span class="ico" data-i="arrow-right" style="font-size:14px"></span></span>
@@ -100,29 +100,94 @@
     </div>
   </section>
 
+  <section class="section section--cloud" aria-labelledby="map-heading">
+    <div class="shell stack stack-6">
+      <div class="stack stack-3" style="max-width:62ch">
+        <p class="eyebrow">The Territory</p>
+        <h2 class="h2" id="map-heading">Coast to desert, about 150 miles</h2>
+        <span class="rule"></span>
+        <p class="lede">Three offices across Los Angeles and the valleys, two in the Coachella Valley. Same standard, same people, whichever one holds your file.</p>
+      </div>
+      <figure class="map">
+        <svg class="map__svg" viewBox="0 0 1140 518" role="img" aria-labelledby="map-title map-desc">
+          <title id="map-title">Wonderland Escrow offices across Southern California</title>
+          <desc id="map-desc">Five offices plotted at their true relative positions. Santa Clarita Valley, Los Angeles in Sherman Oaks, and Conejo Valley in Westlake Village cluster to the west; Coachella Valley West in Rancho Mirage and Coachella Valley East in La Quinta sit roughly 150 miles east.</desc>
+
+          <!-- brand mark, sitting in the empty ground between the two clusters -->
+          <g class="map__wmark" transform="translate(398 58) scale(3.56)" aria-hidden="true">
+            <path d="M107.09.33l-.02,2.7,4.35.02c5.1.02,6.59,2.21,6.58,4.74,0,1.35-.32,2.69-1.85,7.57l-26.18,80.95h-.3s-16.31-56.67-16.31-56.67l9.03-27.43c2.3-7.74,5.91-9.25,11.92-9.22l4.05.02.02-2.7L37.29.07l-.02,2.7,9.01.03,17.5,58.03-11.48,35.34h-.3S24.06,2.72,24.06,2.72l7.96.03.02-2.7-7.4-.02h.03s-6.41-.01-6.41-.01l-10.88-.02h0S0,0,0,0l.02,2.7,7.96-.03.17-.03,9.46,32.15,23.61,77.74h8.41l15.48-47.31h.3s13.62,47.31,13.62,47.31h8.32L119.32,14.36c2.45-7.57,5.32-11.27,13.13-11.24h1.35s.02-2.69.02-2.69l-26.72-.1ZM71.59,35.75L61.89,2.86l12.46.05c5.4.02,5.99,2.21,5.98,4.23,0,1.52-.32,3.71-1.39,6.9l-7.04,21.71h-.3Z"></path>
+          </g>
+
+          <!-- the two clusters the offices actually fall into -->
+          <ellipse class="map__zone" cx="200" cy="155" rx="176" ry="141"></ellipse>
+          <ellipse class="map__zone" cx="1010" cy="392" rx="106" ry="86"></ellipse>
+          <text class="map__zone-label" x="200" y="322" text-anchor="middle">Los Angeles &amp; the valleys</text>
+          <text class="map__zone-label" x="1010" y="502" text-anchor="middle">Coachella Valley</text>
+
+          <!-- the span between them -->
+          <line class="map__link" x1="336" y1="207" x2="898" y2="360"></line>
+          <rect class="map__link-bg" x="540" y="264" width="122" height="30"></rect>
+          <text class="map__link-label" x="601" y="284" text-anchor="middle">about 150 miles</text>
+
+          <a class="map__pin" data-office="santa-clarita" href="office-santa-clarita.html" tabindex="-1" aria-hidden="true">
+            <circle class="map__halo" cx="220" cy="91" r="26"></circle>
+            <circle class="map__dot" cx="220" cy="91" r="9"></circle>
+            <text class="map__name" x="242" y="88">Santa Clarita Valley</text>
+            <text class="map__city" x="242" y="107">Santa Clarita</text>
+          </a>
+          <a class="map__pin" data-office="los-angeles" href="office-los-angeles.html" tabindex="-1" aria-hidden="true">
+            <circle class="map__halo" cx="254" cy="196" r="26"></circle>
+            <circle class="map__dot" cx="254" cy="196" r="9"></circle>
+            <text class="map__name" x="276" y="193">Los Angeles</text>
+            <text class="map__city" x="276" y="212">Sherman Oaks</text>
+          </a>
+          <a class="map__pin" data-office="conejo-valley" href="office-conejo-valley.html" tabindex="-1" aria-hidden="true">
+            <circle class="map__halo" cx="124" cy="198" r="26"></circle>
+            <circle class="map__dot" cx="124" cy="198" r="9"></circle>
+            <text class="map__name" x="124" y="240" text-anchor="middle">Conejo Valley</text>
+            <text class="map__city" x="124" y="259" text-anchor="middle">Westlake Village</text>
+          </a>
+          <a class="map__pin" data-office="coachella-valley" href="office-coachella-valley.html" tabindex="-1" aria-hidden="true">
+            <circle class="map__halo" cx="991" cy="375" r="26"></circle>
+            <circle class="map__dot" cx="991" cy="375" r="9"></circle>
+            <text class="map__name" x="963" y="372" text-anchor="end">Coachella Valley West</text>
+            <text class="map__city" x="963" y="391" text-anchor="end">Rancho Mirage</text>
+          </a>
+          <a class="map__pin" data-office="coachella-valley-east" href="office-coachella-valley-east.html" tabindex="-1" aria-hidden="true">
+            <circle class="map__halo" cx="1028" cy="408" r="26"></circle>
+            <circle class="map__dot" cx="1028" cy="408" r="9"></circle>
+            <text class="map__name" x="1028" y="450" text-anchor="middle">Coachella Valley East</text>
+            <text class="map__city" x="1028" y="469" text-anchor="middle">La Quinta</text>
+          </a>
+        </svg>
+        <figcaption class="fine map__note">Offices are plotted at their true relative positions. Distances are straight-line, not drive time &mdash; the 10 will have its own opinion.</figcaption>
+      </figure>
+    </div>
+  </section>
+
   <section class="section">
     <div class="shell grid grid-2">
-      <a class="card card--link stack stack-5" href="office-santa-clarita.html">
+      <a class="card card--link stack stack-5" data-office="santa-clarita" href="office-santa-clarita.html">
         <img src="assets/logos/offices/santa-clarita-valley-light.svg" alt="" style="height:46px;width:auto">
         <div><h2 class="h3">Santa Clarita Valley</h2><p class="small" style="margin-top:8px">25152 Springfield Court #240<br>Santa Clarita, CA 91355</p></div>
         <p class="eyebrow eyebrow--sm">(661) 210-3615 &nbsp;&rarr;</p>
       </a>
-      <a class="card card--link stack stack-5" href="office-los-angeles.html">
+      <a class="card card--link stack stack-5" data-office="los-angeles" href="office-los-angeles.html">
         <img src="assets/logos/offices/los-angeles-light.svg" alt="" style="height:46px;width:auto">
         <div><h2 class="h3">Los Angeles</h2><p class="small" style="margin-top:8px">13412 Ventura Blvd #200<br>Sherman Oaks, CA 91423</p></div>
         <p class="eyebrow eyebrow--sm">(818) 650-8950 &nbsp;&rarr;</p>
       </a>
-      <a class="card card--link stack stack-5" href="office-conejo-valley.html">
+      <a class="card card--link stack stack-5" data-office="conejo-valley" href="office-conejo-valley.html">
         <img src="assets/logos/offices/conejo-valley-light.svg" alt="" style="height:46px;width:auto">
         <div><h2 class="h3">Conejo Valley</h2><p class="small" style="margin-top:8px">31365 Oak Crest Drive, Suite #200<br>Westlake Village, CA 91361</p></div>
         <p class="eyebrow eyebrow--sm">(805) 869-1790 &nbsp;&rarr;</p>
       </a>
-      <a class="card card--link stack stack-5" href="office-coachella-valley.html">
+      <a class="card card--link stack stack-5" data-office="coachella-valley" href="office-coachella-valley.html">
         <img src="assets/logos/offices/coachella-valley-light.svg" alt="" style="height:46px;width:auto">
         <div><h2 class="h3">Coachella Valley West</h2><p class="small" style="margin-top:8px">70-115 Highway 111, Suite #110<br>Rancho Mirage, CA 92270</p></div>
         <p class="eyebrow eyebrow--sm">(760) 248-3070 &nbsp;&rarr;</p>
       </a>
-      <a class="card card--link stack stack-5" href="office-coachella-valley-east.html">
+      <a class="card card--link stack stack-5" data-office="coachella-valley-east" href="office-coachella-valley-east.html">
         <img src="assets/logos/offices/coachella-valley-light.svg" alt="" style="height:46px;width:auto">
         <div><h2 class="h3">Coachella Valley East</h2><p class="small" style="margin-top:8px">47050 Washington Street, Suite #4202<br>La Quinta, CA 92253</p></div>
         <p class="eyebrow eyebrow--sm">(760) 895-6380 &nbsp;&rarr;</p>

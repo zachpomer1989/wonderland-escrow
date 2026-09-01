@@ -48,6 +48,62 @@ function sellerSheet() {
   return { price, lines, costs, net: price - costs, prorate };
 }
 
+/* ------------------------------------------------- where the money goes (seller bar)
+   Buckets the seller line items by kind so the bar stays readable no matter how many
+   individual fees are filled in. Labels are matched against the labels built in
+   sellerSheet() above -- if you rename one there, rename it here too. */
+const MBAR_BUCKETS = [
+  { key: 'payoff', name: 'Loan payoffs', test: (l) => /^(first|second) loan/i.test(l) },
+  { key: 'commission', name: 'Commissions', test: (l) => /commission/i.test(l) },
+  { key: 'transfer', name: 'Transfer taxes', test: (l) => /transfer tax/i.test(l) },
+  { key: 'titleescrow', name: 'Title &amp; escrow', test: (l) => /escrow|title|notary|recording|wire|courier|demand|subordination/i.test(l) },
+  { key: 'other', name: 'Credits, prorations &amp; other', test: () => true },
+];
+
+const pct = (n) => (n < 1 ? n.toFixed(1) : n.toFixed(0));
+
+function renderMoneyBar(r) {
+  const track = document.getElementById('s-mbar-track');
+  const legend = document.getElementById('s-mbar-legend');
+  const figure = document.getElementById('s-mbar');
+  if (!track || !legend || !figure) return;
+
+  if (!r.price) { figure.hidden = true; return; }
+  figure.hidden = false;
+
+  const totals = {};
+  r.lines.forEach((l) => {
+    const b = MBAR_BUCKETS.find((x) => x.test(l.label));
+    totals[b.key] = (totals[b.key] || 0) + l.amount;
+  });
+
+  const parts = MBAR_BUCKETS
+    .filter((b) => totals[b.key] > 0)
+    .map((b) => ({ key: b.key, name: b.name, amount: totals[b.key] }));
+
+  // When costs exceed the price there is no net to show -- the overage gets its own segment
+  // rather than a negative width, so the seller sees the shortfall instead of a broken bar.
+  const short = r.net < 0;
+  if (short) parts.push({ key: 'over', name: 'Short at closing', amount: -r.net });
+  else parts.push({ key: 'net', name: 'Your net proceeds', amount: r.net });
+
+  const span = short ? r.costs : r.price;
+  track.innerHTML = parts.map((p) =>
+    `<span class="mbar__seg mbar__seg--${p.key}" style="width:${(p.amount / span * 100).toFixed(3)}%"></span>`
+  ).join('');
+
+  legend.innerHTML = parts.map((p) =>
+    `<span class="mbar__item mbar__item--${p.key}">` +
+      `<span class="mbar__swatch mbar__seg--${p.key}"></span>` +
+      `<span class="mbar__name">${p.name}</span>` +
+      `<span class="mbar__val">${money(p.amount)} &middot; ${pct(p.amount / span * 100)}%</span>` +
+    '</span>'
+  ).join('');
+
+  figure.setAttribute('aria-label',
+    'Where the sale price goes: ' + parts.map((p) => `${p.name.replace(/&amp;/g, 'and')} ${money(p.amount)}`).join(', ') + '.');
+}
+
 /* ----------------------------------------------------------------- buyer side */
 function buyerSheet() {
   const price = num('b-price');
@@ -100,6 +156,7 @@ function renderSeller() {
   document.getElementById('s-costs').textContent = money(r.costs);
   document.getElementById('s-net').textContent = money(r.net);
   document.getElementById('s-pct').textContent = r.price ? (r.costs / r.price * 100).toFixed(1) + '% of sale price' : '—';
+  renderMoneyBar(r);
   return r;
 }
 

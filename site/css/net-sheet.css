@@ -60,3 +60,29 @@
   .print-foot{margin-top:24px;padding-top:12px;border-top:1px solid var(--border-hairline)}
   .results__disclaimer{display:none}
 }
+
+/* ---------- net sheet "where the money goes" bar ----------
+   One proportional bar over the sale price: outgoings run a grey ramp, what the seller keeps
+   is brand blue. Segments are written by js/net-sheet.js. Colours are forced in print so the
+   bar survives the co-branded PDF. */
+.mbar{margin:var(--space-5) 0 var(--space-6)}
+.mbar__track{display:flex;width:100%;height:34px;overflow:hidden;background:var(--wl-cloud);border:1px solid var(--border-hairline)}
+.mbar__seg{height:100%;min-width:2px;transition:width var(--duration-base) var(--ease-out)}
+.mbar__seg--payoff{background:var(--wl-ink-800)}
+.mbar__seg--commission{background:var(--wl-slate)}
+.mbar__seg--titleescrow{background:var(--wl-slate-400)}
+.mbar__seg--transfer{background:var(--wl-slate-200)}
+.mbar__seg--other{background:var(--wl-cloud-dark)}
+.mbar__seg--net{background:var(--wl-blue)}
+.mbar__seg--over{background:repeating-linear-gradient(45deg,var(--status-error),var(--status-error) 6px,#8f2325 6px,#8f2325 12px)}
+.mbar__legend{display:flex;flex-direction:column;gap:7px;margin-top:var(--space-4);padding:0}
+.mbar__item{display:flex;align-items:baseline;gap:8px;font-family:var(--font-ui);font-size:12.5px;line-height:1.4}
+.mbar__swatch{flex:none;width:10px;height:10px;margin-top:1px;border:1px solid rgba(0,0,0,.08)}
+.mbar__name{color:var(--text-muted)}
+.mbar__val{margin-left:auto;font-weight:var(--fw-demi);color:var(--text-heading);white-space:nowrap}
+.mbar__item--net .mbar__name,.mbar__item--net .mbar__val{color:var(--text-brand);font-weight:var(--fw-heavy)}
+.mbar__item--over .mbar__name,.mbar__item--over .mbar__val{color:var(--status-error);font-weight:var(--fw-heavy)}
+@media print{
+  .mbar__track,.mbar__seg,.mbar__swatch{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .mbar__seg{transition:none}
+}
